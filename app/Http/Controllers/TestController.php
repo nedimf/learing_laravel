@@ -17,7 +17,7 @@ class TestController extends Controller
     }
 
     public function getArticle($id){
-      $text="Nesto nije u redu...!";
+      $text="Nesto nije u redu...";
       if($id==1) $text="Tekst clanka broj 1.";
       if($id==2) $text="Tekst clanka broj 2.";
       if($id>2) $text="Tekst nekog drugog clanka.";
