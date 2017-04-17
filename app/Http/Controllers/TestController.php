@@ -9,7 +9,7 @@ class TestController extends Controller
     public function index(){
       $tekst="Nasa prva stranica!";
       $naslov="Nas naslov";
-      return view('front.pocetna', compact('osoba1'));
+      return view('front.pocetna', compact('naslov', 'tekst'));
     }
 
     public function getTito(){
@@ -24,25 +24,7 @@ class TestController extends Controller
       return view('front.clanak', compact('text'));
     }
 
-    class Person {
-            // Creating some properties (variables tied to an object)
-            public $isAlive = true;
-            public $firstname;
-            public $lastname;
-            public $age;
 
-            // Creating a method (function tied to an object)
-            public function greet() {
-              return "Hello, my name is " . $this->firstname . " " . $this->lastname . ". Nice to meet you! :-)";
-            }
-          }
-
-          $osoba1 = new Person();
-          $osoba1->firstname = "mirza";
-          $osoba1->lastname = "hodzic";
-          $osoba1->age=26;
-          $osoba1->save();
-          $osoba1->greet();
 
 
 
