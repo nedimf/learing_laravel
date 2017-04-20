@@ -17,7 +17,7 @@ class CitiesController extends Controller
 
     public function create()
     {
-        //
+        return view('cities.create');
     }
 
     /**
@@ -28,7 +28,10 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $newcity = City::create($request->all());
+        $cities = City::get();
+        return redirect('cities');
     }
 
     /**
@@ -51,7 +54,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $city = City::find($id);
+      return view('cities.edit',compact('city'));
     }
 
     /**
@@ -63,7 +67,9 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $staricity =City::find($id);
+        $staricity->update($request->all());
+        return redirect('cities');
     }
 
     /**
@@ -74,6 +80,7 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+      City::destroy($id);
+      return redirect('cities');
     }
 }
