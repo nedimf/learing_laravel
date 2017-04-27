@@ -6,5 +6,6 @@
   </head>
   <body>
     <h1>{{$city->name}}</h1>
+    <h2>Country id: {{$city->country_id}}</h2>
   </body>
 </html>

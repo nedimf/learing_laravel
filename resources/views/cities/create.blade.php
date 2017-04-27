@@ -9,9 +9,18 @@
       {!! csrf_field() !!}
       <label for="name">Ime našeg novog grada:</label><br>
       <input type="text" name="name" id="name" required><br>
-      <label for="name">Zip code našeg novog grada:</label><br>
-      <input type="text" name="zip"required>
+     
       <br>
+      <select name="country_id">
+        @foreach ($countries as $country)
+       
+    <option value="{{$country->id}}">{{$country->name}}</option>
+  
+
+     
+     @endforeach    
+      </select>
+      <br><br>
       <input type="submit">
 </form>
   </body>

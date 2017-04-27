@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
   protected $fillable = [
-      'name', 'zip'
+      'name', 'country_id',
   ];
+ 
+ public function Country() {
+    
+    return $this->belongsTo("App\Country");
+   
 }
+  
+}
+

@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\City;
 use App\Country;
+use App\City;
 
-class CitiesController extends Controller
-{
+class CountryController extends Controller
+
+    {
 
     public function index()
     {
-        $cities = City::get();
+        $countries = Country::get();
 
-        return view('cities.index',compact('cities'));
+        return view('country.index',compact('countries'));
     }
 
     public function create()
     {    
-
-        $countries = Country::all();
-        return view('cities.create',compact('countries'));
+    	$country = Country::get();
+        return view('country.create',compact('country'));
     }
 
     /**
@@ -32,10 +32,9 @@ class CitiesController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        
-        $newcity = City::create($request->all());
-        $cities = City::get();
-        return redirect('cities');
+        $newcountry = Country::create($request->all());
+        $countries = Country::get();
+        return redirect('countries');
     }
 
     /**
@@ -46,8 +45,13 @@ class CitiesController extends Controller
      */
     public function show($id)
     {
-        $city = City::find($id);
-        return view('cities.show',compact('city'));
+        $country = Country::find($id);
+        $countries = Country::all();
+        return view('country.show',compact('countries','country'));
+        
+
+
+
     }
 
     /**
@@ -58,8 +62,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-      $city = City::find($id);
-      return view('cities.edit',compact('city'));
+      $country = Country::find($id);
+      return view('country.edit',compact('country'));
     }
 
     /**
@@ -71,9 +75,9 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $staricity =City::find($id);
-        $staricity->update($request->all());
-        return redirect('cities');
+        $staricountry = Country::find($id);
+        $staricountry->update($request->all());
+        return redirect('countries');
     }
 
     /**
@@ -84,7 +88,11 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-      City::destroy($id);
-      return redirect('cities');
+      Country::destroy($id);
+      return redirect('countries');
     }
+
+
+
+
 }
