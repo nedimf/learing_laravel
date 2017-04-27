@@ -45,9 +45,9 @@ class CountryController extends Controller
      */
     public function show($id)
     {
-        $country = Country::find($id);
-        $countries = Country::all();
-        return view('country.show',compact('countries','country'));
+         $country = Country::find($id);
+      $citiesOfMyCountry = $country->cities;
+        return view('country.show',compact('country','citiesOfMyCountry'));
         
 
 
@@ -62,7 +62,9 @@ class CountryController extends Controller
      */
     public function edit($id)
     {
+
       $country = Country::find($id);
+      $citiesOfMyCountry = $country->cities;
       return view('country.edit',compact('country'));
     }
 

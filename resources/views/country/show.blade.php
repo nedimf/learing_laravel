@@ -8,12 +8,12 @@
     <h1>{{$country->name}}</h1>
     <h1>Gradovi</h1>
      
-    @foreach ($countries as $country)
+    @foreach ($citiesOfMyCountry as $city)
         
         <ul>
         
 
-        <li>{{}}</li>
+        <li>{{$city->name}}</li>
         
         </ul>
 
